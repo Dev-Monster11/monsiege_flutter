@@ -31,7 +31,7 @@ class _LoginCheckerState extends State<LoginChecker> {
   bool checkConnect = false;
 
   Future<void> userConnect(token, id) async {
-    var uri = Uri.parse('https://' + staffCenter + url + "auto_login");
+    var uri = Uri.parse(url + "auto_login");
     final httpResponse = await http.post(uri, headers: <String, String>{
       'Authorization': 'Bearer $bearerToken',
       'Token': '$token'

@@ -26,7 +26,6 @@ class _PageLoginState extends State<PageLogin> {
   String lastLogin = "";
   String lastActivity = "";
   String token = "";
-  String? centerName = "bruxelles";
 
   late DbHelper dbhelper;
   final _formKey = GlobalKey<FormState>();
@@ -42,7 +41,7 @@ class _PageLoginState extends State<PageLogin> {
 
   Future<void> userLogin(String emailaddress, String password) async {
     if (_formKey.currentState!.validate()) {
-      var uri = Uri.parse('https://' + staffCenter + url + "login");
+      var uri = Uri.parse(url + "login");
       final httpResponse = await http.post(
         uri,
         body: {"email": emailaddress, "password": password},
@@ -285,50 +284,6 @@ class _PageLoginState extends State<PageLogin> {
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: const EdgeInsets.only(top: 25),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ListTile(
-                                title: const Text(
-                                  "Bruxelles",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                                leading: Radio<String>(
-                                    value: "bruxelles",
-                                    groupValue: centerName,
-                                    onChanged: (String? value) {
-                                      setState(() {
-                                        centerName = value;
-                                        staffCenter = value ?? '';
-                                      });
-                                    })),
-                            ListTile(
-                                title: const Text("Kraainem",
-                                    style: TextStyle(fontSize: 10)),
-                                leading: Radio<String>(
-                                    value: "kraainem",
-                                    groupValue: centerName,
-                                    onChanged: (String? value) {
-                                      setState(() {
-                                        centerName = value;
-                                        staffCenter = value ?? '';
-                                      });
-                                    })),
-                            ListTile(
-                                title: const Text("Overijse",
-                                    style: TextStyle(fontSize: 10)),
-                                leading: Radio<String>(
-                                    value: "overijse",
-                                    groupValue: centerName,
-                                    onChanged: (String? value) {
-                                      setState(() {
-                                        centerName = value;
-                                        staffCenter = value ?? '';
-                                      });
-                                    })),
-                          ])),
                   Container(
                     margin: const EdgeInsets.only(top: 10),
                     child: Row(

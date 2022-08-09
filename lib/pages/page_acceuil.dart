@@ -45,7 +45,7 @@ class _PageAccueilState extends State<PageAccueil> {
   late Priorities valuePriorities;
 
   Future<void> getDataglobal() async {
-    var uri = Uri.parse('https://' + staffCenter + url + "global&getlist=all");
+    var uri = Uri.parse(url + "global&getlist=all");
 
     final httpResponse = await http.post(uri, headers: <String, String>{
       'Authorization': 'Bearer $bearerToken',

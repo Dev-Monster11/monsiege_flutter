@@ -61,7 +61,7 @@ class _ListclientsqrcodeState extends State<Listclientsqrcode> {
 
   Future<bool> validateTicket(
       File fileSignature, ticketId, List listpictures) async {
-    var uri = Uri.parse('https://' + staffCenter + url + "validate");
+    var uri = Uri.parse(url + "validate");
     Map<String, String> headers = {
       'Authorization': 'Bearer $bearerToken',
       'Token': widget.token.toString()
@@ -94,7 +94,7 @@ class _ListclientsqrcodeState extends State<Listclientsqrcode> {
   Future<void> getDataqrcode() async {
     ClientMap.client.clear();
 
-    var uri = Uri.parse('https://' + staffCenter + url + "scan_qr");
+    var uri = Uri.parse(url + "scan_qr");
     final httpResponse = await http.post(
       uri,
       body: {"qrCode": widget.result.toString(), "staffId": widget.staffId},
