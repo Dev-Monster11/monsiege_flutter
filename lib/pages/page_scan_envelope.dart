@@ -83,7 +83,7 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
     final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
     final RecognizedText recognizedText =
         await textRecognizer.processImage(inputImage);
-
+    print("Line Data Started");
     for (TextBlock block in recognizedText.blocks) {
       // final Rect rect = block.boundingBox;
       // final List<Point<int>> cornerPoints = block.cornerPoints;
@@ -107,6 +107,7 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
 
       for (TextLine line in block.lines) {
         if (checkNumber(line.text) == true) continue;
+        print(line.text);
         for (var item in keys) {
           if (line.text.toLowerCase().contains(item)) {
             flag = true;
