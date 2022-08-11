@@ -121,6 +121,7 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
         // } else {
         //   _text = line.text;
         // }
+        _text += line.text + "\n";
         print("Line: ${line.text}");
       }
       // if (flag == true) break;

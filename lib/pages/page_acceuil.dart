@@ -87,7 +87,7 @@ class _PageAccueilState extends State<PageAccueil> {
         valueSallesCourrier = listSallesCourrier.isEmpty
             ? SallesCourrier(departmentId: "-1", departmentName: "Test")
             : listSallesCourrier[0];
-        valuePriorities = listSallesCourrier.isEmpty
+        valuePriorities = listPriorities.isEmpty
             ? Priorities(priorityId: "-1", priorityName: "Test")
             : listPriorities[0];
 
