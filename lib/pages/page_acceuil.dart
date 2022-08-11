@@ -80,9 +80,16 @@ class _PageAccueilState extends State<PageAccueil> {
           }
         });
         //------------initialise data-----------//
-        valueExpediteurs = listExpediteur[0];
-        valueSallesCourrier = listSallesCourrier[0];
-        valuePriorities = listPriorities[0];
+
+        valueExpediteurs = listExpediteur.isEmpty
+            ? Expediteurs(serviceId: "-1", serviceName: "Test")
+            : listExpediteur[0];
+        valueSallesCourrier = listSallesCourrier.isEmpty
+            ? SallesCourrier(departmentId: "-1", departmentName: "Test")
+            : listSallesCourrier[0];
+        valuePriorities = listSallesCourrier.isEmpty
+            ? Priorities(priorityId: "-1", priorityName: "Test")
+            : listPriorities[0];
 
         DataGlobal.valueExpediteurs = valueExpediteurs;
         DataGlobal.valueSallesCourrier = valueSallesCourrier;

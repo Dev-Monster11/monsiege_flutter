@@ -90,43 +90,46 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
 
       // print("Bouding box${block.boundingBox}");
       // var companyName = '';
-      var flag = false;
-      final keys = [
-        "mechelsestwg",
-        "mechelsesteenweg",
-        "malinesesteenweg",
-        "steenweg",
-        "grensstraat",
-        "grensstr",
-        "limite",
-        "mechelen",
-        "malines",
-        "empereur",
-        "keizerslaan",
-      ];
+      // var flag = false;
+      // final keys = [
+      //   "mechelsestwg",
+      //   "mechelsesteenweg",
+      //   "malinesesteenweg",
+      //   "steenweg",
+      //   "grensstraat",
+      //   "grensstr",
+      //   "limite",
+      //   "mechelen",
+      //   "malines",
+      //   "empereur",
+      //   "keizerslaan",
+      // ];
 
       for (TextLine line in block.lines) {
         if (checkNumber(line.text) == true) continue;
-        print(line.text);
-        for (var item in keys) {
-          if (line.text.toLowerCase().contains(item)) {
-            flag = true;
-            break;
-          }
-        }
-        if (flag == true) {
-          // print("Company Name is $_text");
-          break;
-        } else {
-          _text = line.text;
-        }
+        // print(line.text);
+        // for (var item in keys) {
+        //   if (line.text.toLowerCase().contains(item)) {
+        //     flag = true;
+        //     break;
+        //   }
+
+        // }
+        // if (flag == true) {
+        //   // print("Company Name is $_text");
+        //   break;
+        // } else {
+        //   _text = line.text;
+        // }
+        print("Line: ${line.text}");
       }
-      if (flag == true) break;
+      // if (flag == true) break;
     }
-    print("Company is");
-    print(_text);
-    print(_text.lastIndexOf(' '));
-    _text = _text.substring(0, _text.lastIndexOf(' '));
+    // print("Company is");
+    // print(_text);
+    // print(_text.lastIndexOf(' '));
+    // _text = _text.substring(0, _text.lastIndexOf(' '));
+    print("-----");
     textRecognizer.close();
 
     Navigator.pop(context);
