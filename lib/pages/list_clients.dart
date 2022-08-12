@@ -65,7 +65,7 @@ class _ListClientState extends State<ListClient> {
   }
 
   Future<void> sendOcrtext() async {
-    var uri = Uri.parse(url + "search");
+    var uri = Uri.parse('https://' + staffCenter + url + "search");
     if (widget.ocrText != "") {
       final httpResponse = await http.post(uri, headers: <String, String>{
         'Authorization': 'Bearer $bearerToken',
@@ -98,7 +98,7 @@ class _ListClientState extends State<ListClient> {
   }
 
   Future<void> sendbyentry() async {
-    var uri = Uri.parse(url + "search");
+    var uri = Uri.parse('https://' + staffCenter + url + "search");
     if (widget.entryText != "") {
       final httpResponse = await http.post(uri, headers: <String, String>{
         'Authorization': 'Bearer $bearerToken',
@@ -168,7 +168,7 @@ class _ListClientState extends State<ListClient> {
             );
           });
 
-      var uri = Uri.parse(url + "create_ticket");
+      var uri = Uri.parse('https://' + staffCenter + url + "create_ticket");
       Map<String, String> headers = {
         'Authorization': 'Bearer $bearerToken',
         'Token': widget.token

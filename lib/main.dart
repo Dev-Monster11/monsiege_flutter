@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Siege24',
+        title: 'Monsiegesocial',
         theme: ThemeData(
           fontFamily: "Sinkin",
         ),

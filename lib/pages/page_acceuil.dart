@@ -45,7 +45,7 @@ class _PageAccueilState extends State<PageAccueil> {
   late Priorities valuePriorities;
 
   Future<void> getDataglobal() async {
-    var uri = Uri.parse(url + "global&getlist=all");
+    var uri = Uri.parse('https://' + staffCenter + url + "global&getlist=all");
 
     final httpResponse = await http.post(uri, headers: <String, String>{
       'Authorization': 'Bearer $bearerToken',
@@ -80,9 +80,16 @@ class _PageAccueilState extends State<PageAccueil> {
           }
         });
         //------------initialise data-----------//
-        valueExpediteurs = listExpediteur[0];
-        valueSallesCourrier = listSallesCourrier[0];
-        valuePriorities = listPriorities[0];
+
+        valueExpediteurs = listExpediteur.isEmpty
+            ? Expediteurs(serviceId: "-1", serviceName: "Test")
+            : listExpediteur[0];
+        valueSallesCourrier = listSallesCourrier.isEmpty
+            ? SallesCourrier(departmentId: "-1", departmentName: "Test")
+            : listSallesCourrier[0];
+        valuePriorities = listPriorities.isEmpty
+            ? Priorities(priorityId: "-1", priorityName: "Test")
+            : listPriorities[0];
 
         DataGlobal.valueExpediteurs = valueExpediteurs;
         DataGlobal.valueSallesCourrier = valueSallesCourrier;
