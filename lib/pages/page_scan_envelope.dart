@@ -90,42 +90,44 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
 
       // print("Bouding box${block.boundingBox}");
       // var companyName = '';
-      var flag = false;
-      final keys = [
-        "mechelsestwg",
-        "mechelsesteenweg",
-        "malinesesteenweg",
-        "steenweg",
-        "grensstraat",
-        "grensstr",
-        "limite",
-        "mechelen",
-        "malines",
-        "empereur",
-        "keizerslaan",
-      ];
+      // var flag = false;
+      // final keys = [
+      //   "mechelsestwg",
+      //   "mechelsesteenweg",
+      //   "malinesesteenweg",
+      //   "steenweg",
+      //   "grensstraat",
+      //   "grensstr",
+      //   "limite",
+      //   "mechelen",
+      //   "malines",
+      //   "empereur",
+      //   "keizerslaan",
+      // ];
 
       for (TextLine line in block.lines) {
         if (checkNumber(line.text) == true) continue;
-        for (var item in keys) {
-          if (line.text.toLowerCase().contains(item)) {
-            flag = true;
-            break;
-          }
-        }
-        if (flag == true) {
-          // print("Company Name is $_text");
-          break;
-        } else {
-          _text = line.text;
-        }
+        _text += line.text + "\n";
       }
-      if (flag == true) break;
+      //   for (var item in keys) {
+      //     if (line.text.toLowerCase().contains(item)) {
+      //       flag = true;
+      //       break;
+      //     }
+      //   }
+      //   if (flag == true) {
+      //     // print("Company Name is $_text");
+      //     break;
+      //   } else {
+      //     _text = line.text;
+      //   }
+      // }
+      // if (flag == true) break;
     }
-    print("Company is");
-    print(_text);
-    print(_text.lastIndexOf(' '));
-    _text = _text.substring(0, _text.lastIndexOf(' '));
+    // print("Company is");
+    // print(_text);
+    // print(_text.lastIndexOf(' '));
+    // _text = _text.substring(0, _text.lastIndexOf(' '));
     textRecognizer.close();
 
     Navigator.pop(context);
