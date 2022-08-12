@@ -1,4 +1,4 @@
-package com.monsiegesocial.staff;
+package com.siege24.staff;
 
 import io.flutter.embedding.android.FlutterActivity;
 
