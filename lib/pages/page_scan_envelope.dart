@@ -122,7 +122,11 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
         //   _text = line.text;
         // }
         _text += line.text + "\n";
-        print("Line: ${line.text}");
+        if (line.text.contains(' ')) {
+          var temp = line.text.substring(0, line.text.lastIndexOf(' '));
+          if (checkNumber(temp) == false) _text += temp + "\n";
+        }
+        // print("Line: ${line.text}");
       }
       // if (flag == true) break;
     }
@@ -130,7 +134,7 @@ class _PageScanenvelopeState extends State<PageScanenvelope> {
     // print(_text);
     // print(_text.lastIndexOf(' '));
     // _text = _text.substring(0, _text.lastIndexOf(' '));
-    print("-----");
+    // print("-----");
     textRecognizer.close();
 
     Navigator.pop(context);
